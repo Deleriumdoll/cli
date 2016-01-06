@@ -38,11 +38,7 @@ class Auth {
       if (isset($session->refresh)) {
         $auth->logInViaMachineToken($session->refresh);
       } else {
-        throw new TerminusException(
-          'Please login first with `terminus auth login`',
-          array(),
-          1
-        );
+        throw new TerminusException(TERMINUS_TOKEN_URL, [], 1);
       }
     }
     return true;

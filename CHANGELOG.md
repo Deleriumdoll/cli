@@ -11,6 +11,7 @@ All notable changes to this project starting with the 0.6.0 release will be docu
 - Moved Terminus::line() to Terminus\Outputters\Outputter. (#768)
 - Removed dev packages from PHAR file. (#774)
 - Updated Symfony to version 3.0.0. Minimum PHP version required to run Terminus is now 5.5.9. (#772)
+- When not logged in, the message given now refers the user to create a machine token in order to log in. (#790)
 
 ### Fixed
 - Missing creation dates in site data while using organizations site list command will no longer cause errors. (#766)

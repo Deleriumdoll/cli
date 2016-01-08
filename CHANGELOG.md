@@ -4,6 +4,7 @@ All notable changes to this project starting with the 0.6.0 release will be docu
 ## Master
 ### Added
 - `config/constants.yml` file to contain the default constants for Terminus. (#791)
+- Added `machinetoken list` and `machinetoken delete` commands (#798)
 
 ### Changed
 - Moved Terminus::prompt(), Terminus::promptSecret() to Terminus\Helpers\Input. (#768)

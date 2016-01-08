@@ -25,8 +25,9 @@ class MachineTokensCommand extends TerminusCommand {
    * Show a list of your macnine tokens on Pantheon
    *
    * @subcommand list
+   * @alias show
    */
-  public function all($args, $assoc_args) {
+  public function index($args, $assoc_args) {
     $user        = new User();
 
     $machine_tokens = $user->machine_tokens->all();
@@ -37,6 +38,11 @@ class MachineTokensCommand extends TerminusCommand {
         'device_name' => $machine_token->get('device_name'),
       );
     }
+
+    if (count($data) == 0) {
+      $this->log()->warning('You have no machine tokens.');
+    }
+
     $this->output()->outputRecordList(
       $data,
       array(
@@ -45,7 +51,6 @@ class MachineTokensCommand extends TerminusCommand {
       )
     );
   }
-
 
   /**
    * Delete a machine token from your account
@@ -93,13 +98,13 @@ class MachineTokensCommand extends TerminusCommand {
     $response = $machine_token->delete();
     if ($response['status_code'] == 200) {
       $this->log()->info('Done!');
-    }
-    else {
+    } else {
       $this->failure(
         'There was an problem deleting the machine token.'
       );
     }
   }
+
 }
 
 Terminus::addCommand('machinetokens', 'MachineTokensCommand');

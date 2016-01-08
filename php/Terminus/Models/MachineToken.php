@@ -16,4 +16,5 @@ class MachineToken extends TerminusModel {
     );
     return $response;
   }
+
 }

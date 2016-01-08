@@ -1315,7 +1315,7 @@ class SiteCommand extends TerminusCommand {
    *
    * ## Examples
    *
-   *    terminus site redis clear --site=mikes-wp-test --env=live
+   *    terminus site redis clear --site=behat-tests --env=live
    */
   public function redis($args, $assoc_args) {
     $action = array_shift($args);
@@ -1357,7 +1357,9 @@ class SiteCommand extends TerminusCommand {
         foreach ($commands as $env => $command) {
           $this->log()->info('Clearing redis on {env}', array('env' => $env));
           exec($command, $stdout, $return);
-          $this->log()->info($stdout[0]);
+          if (!empty($stdout)) {
+            $this->log()->info($stdout[0]);
+          }
         }
           break;
     }

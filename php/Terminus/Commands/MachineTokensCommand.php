@@ -28,7 +28,7 @@ class MachineTokensCommand extends TerminusCommand {
    */
   public function all($args, $assoc_args) {
     $user        = new User();
-    $this->log()->info('Listing tokens.');
+
     $machine_tokens = $user->machine_tokens->all();
     $data        = array();
     foreach ($machine_tokens as $id => $machine_token) {

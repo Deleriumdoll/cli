@@ -8,13 +8,6 @@ class MachineTokens extends TerminusCollection {
   protected $user;
 
   /**
-   * Clear the in-memory cache of the users tokens.
-   */
-  public function clearCache() {
-    unset($this->members);
-  }
-
-  /**
    * Give the URL for collection data fetching
    *
    * @return string URL to use in fetch query
